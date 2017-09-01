@@ -15,6 +15,7 @@ var kingdoms = [{ crest: "https://vignette4.wikia.nocookie.net/gameofthrones/ima
 
 
 
+
 for (var i = 0; i < kingdoms.length; i++){
 /*	console.log(kingdoms[i].crest);
 	console.log(kingdoms[i].house);
@@ -22,42 +23,74 @@ for (var i = 0; i < kingdoms.length; i++){
 	console.log(kingdoms[i].lord);
 	console.log(kingdoms[i].allegiance);*/
 
+	var boba = document.createElement("div");
+	boba.className = "parent";
+	main.appendChild(boba);
+
 	var crestBox = document.createElement("IMG");
 	crestBox.className = "GOTcrest";
 	crestBox.src = kingdoms[i].crest;
-	main.appendChild(crestBox);
+	crestBox.id = "imagesAreHard";
+	boba.appendChild(crestBox);
 
+	var textBox = document.createElement("div");
+	textBox.className = "text";
+	boba.appendChild(textBox);
+
+	
 
 	var houseBox = document.createElement("div");
 	houseBox.className = "GOThouse";
 	houseBox.innerHTML = "House: " + kingdoms[i].house;
-	main.appendChild(houseBox);
+	textBox.appendChild(houseBox);
 
 	var regionBox = document.createElement("div");
 	regionBox.className = "GOTregion";
 	regionBox.innerHTML = "Region: " + kingdoms[i].region;
-	main.appendChild(regionBox);
-
+	textBox.appendChild(regionBox);
+	var addbreak = document.createElement("BR");
+	boba.appendChild(addbreak);
 	var lordBox = document.createElement("div");
 	lordBox.className = "GOTlord";
 	lordBox.innerHTML = "Lord: " + kingdoms[i].lord;
-	main.appendChild(lordBox);
+	textBox.appendChild(lordBox);
+
+/*	var addbreak = document.createElement("BR");
+	boba.appendChild(addbreak);*/
 
 	var allegianceBox = document.createElement("div");
 	allegianceBox.className = "GOTallegiance";
 	allegianceBox.innerHTML = "Allegiance: " + kingdoms[i].allegiance;
-	main.appendChild(allegianceBox);
+	textBox.appendChild(allegianceBox);
 
-	var addbreak = document.createElement("BR");
-	main.appendChild(addbreak);
 
-	var addbreak = document.createElement("BR");
-	main.appendChild(addbreak);
-
-	var addbreak = document.createElement("BR");
-	main.appendChild(addbreak);
+	main.appendChild(boba);
 
 }
 
+var dynamic = document.getElementsByClassName("parent");
+for(var i = 0; i<dynamic.length; i++){
+	dynamic[i].addEventListener("click", showGot);
+
+}
+
+function showGot(){
+var showGot = this.querySelectorAll(".text")[0];
+if(showGot.style.display==="none"){
+	showGot.style.display ="block";
+}else{
+	showGot.style.display = "none";
+}
+
+}
+
+/*
+	var crestBox = document.createElement("IMG");
+	crestBox.className = "GOTcrest";
+	crestBox.src = kingdoms[i].crest;
+	main.appendChild(crestBox);*/
 
 
+/*var imgBox = document.getElementsByTagName("img");
+console.log(imgBox);
+imgBox[8].src = "../assets/ali.jpg";*/
